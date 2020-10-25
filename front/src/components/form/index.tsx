@@ -1,3 +1,4 @@
+import Axios from 'axios'
 import React, { useState } from 'react'
 import withStyles, { WithStylesProps } from 'react-jss'
 
@@ -22,6 +23,7 @@ const Form: React.FC<FormProps> = (props: FormProps) => {
     const onHandleSubmit = (event: any) => {
         event.preventDefault()
         alert(JSON.stringify(formData))
+        Axios.post("http://localhost:4000/participant", formData).then(res => console.log(res.data))
         setFormData({})
     }
 
