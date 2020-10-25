@@ -3,6 +3,7 @@ import mongoose from "mongoose"
 import morgan from "morgan"
 import routes from "@routes/index"
 import uri from "@database/config"
+import cors from "cors"
 
 class App {
     server: any
@@ -23,6 +24,7 @@ class App {
     }
 
     middlewares() {
+        this.server.use(cors())
         this.server.use(express.json())
     }
 
