@@ -21,6 +21,7 @@
     "paths": {
       "@controllers/*": ["./src/controllers/*"],
       "@routes/*": ["./src/routes/*"],
+      "@retrievers/*": ["./src/retrievers/*"],
       "@database/*": ["./src/database/*"],
       "@models/*": ["./src/models/*"],
       "@views/*": ["./src/views/*"],
