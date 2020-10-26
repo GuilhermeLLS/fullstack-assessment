@@ -13,41 +13,8 @@ interface TableProps extends WithStylesProps<typeof styles> {
 
 const Table: React.FC<TableProps> = (props) => {
     const { classes } = props;
-    const [data, setData] = useContext(ParticipantsContext) as any[][]
-    // const data: any[] = useContext(ParticipantsContext)
+    const [data,] = useContext(ParticipantsContext) as any[][]
 
-    // const fakeData = [
-    //     {
-    //         fName: "guilherme",
-    //         lName: "luiz",
-    //         p: 5
-    //     },
-    //     {
-    //         fName: "guilherme",
-    //         lName: "luiz",
-    //         p: 5
-    //     },
-    //     {
-    //         fName: "guilherme",
-    //         lName: "luiz",
-    //         p: 5
-    //     },
-    //     {
-    //         fName: "guilherme",
-    //         lName: "luiz",
-    //         p: 5
-    //     },
-    //     {
-    //         fName: "guilherme",
-    //         lName: "luiz",
-    //         p: 5
-    //     },
-    //     {
-    //         fName: "guilherme",
-    //         lName: "luiz",
-    //         p: 5
-    //     },
-    // ];
     const renderData = () => {
         return data.map((item, index) => {
             return (
@@ -68,7 +35,7 @@ const Table: React.FC<TableProps> = (props) => {
                     <th>#</th>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Participartion</th>
+                    <th>Participation</th>
                 </tr>
             </thead>
             <tbody>

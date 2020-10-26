@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import withStyles, { WithStylesProps } from "react-jss";
 import Pie from "react-chartjs-2";
 import { ParticipantsContext } from "../../context";
@@ -16,13 +16,12 @@ interface ChartProps extends WithStylesProps<typeof styles> {
 const Chart: React.FC<ChartProps> = (props) => {
     const { classes } = props;
     const [chartData, setChartData] = useState({});
-    const [data, setData] = useContext(ParticipantsContext) as any[][]
+    const [data,] = useContext(ParticipantsContext) as any[][]
 
     const getLabelsFromData = () => data.map((elem) => elem.name)
     const getParticipationFromData = () => data.map((elem) => elem.participation)
 
     const chart = () =>
-        // useCallback(() => {
         setChartData({
             // !labels are going to be people names
             labels: getLabelsFromData(),
@@ -40,10 +39,7 @@ const Chart: React.FC<ChartProps> = (props) => {
                     borderWidth: [2, 2]
                 }
             ]
-            // })
         })
-    // , [])
-
 
     useEffect(() => {
         chart()
