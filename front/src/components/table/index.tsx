@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import withStyles, { WithStylesProps } from "react-jss";
-import { ParticipantsContext } from "../../context";
+import { DEFAULT_CONTEXT_STATE_VALUES, ParticipantsContext } from "../../context";
+import { areObjectsEqual } from "../../utils";
 
 const styles = {
     root: {
@@ -20,14 +21,13 @@ const styles = {
     },
 };
 
-interface TableProps extends WithStylesProps<typeof styles> {
-};
+interface TableProps extends WithStylesProps<typeof styles> {}
 
 const Table: React.FC<TableProps> = (props) => {
     const { classes } = props;
-    const [data,] = useContext(ParticipantsContext) as any[][]
+    const { data } = useContext(ParticipantsContext)
 
-    if (!data || data.length === 0) {
+    if (!data || data.length === 0 || areObjectsEqual(data, DEFAULT_CONTEXT_STATE_VALUES.data)) {
         return null
     }
 
