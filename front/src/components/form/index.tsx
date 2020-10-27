@@ -14,9 +14,8 @@ const styles = {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center"
-            }    
+            }
         }
-
     },
     input: {
         height: "30px",
@@ -39,8 +38,7 @@ const styles = {
     }
 }
 
-interface FormProps extends WithStylesProps<typeof styles> {
-}
+interface FormProps extends WithStylesProps<typeof styles> {}
 
 interface FormData {
     name: string,
@@ -51,12 +49,11 @@ interface FormData {
 const Form: React.FC<FormProps> = (props: FormProps) => {
     const { classes } = props
     const [formData, setFormData] = useState({})
-    const [, setData] = useContext(ParticipantsContext)
+    const { setData } = useContext(ParticipantsContext)
 
     const onHandleSubmit = (event: any) => {
         event.preventDefault()
-        alert(JSON.stringify(formData))
-        Axios.post("http://localhost:4000/participant", formData).then(res => setData(res.data))
+        Axios.post<Array<FormData>>("http://localhost:4000/participant", formData).then(res => setData(res.data)).catch(err => alert(err.response.data))
         event.target.reset()
         setFormData({
             name: "",
