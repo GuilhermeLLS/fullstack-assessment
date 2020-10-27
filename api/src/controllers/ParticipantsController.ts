@@ -6,14 +6,13 @@ class ParticipantsController {
   async InsertParticipant(req: Request, res: Response) {
     const totalParticipationPercentage = await retrieveTotalParticipation()
     if (totalParticipationPercentage >= 100) {
-      return res.status(404).send('A porcentagem total de participacao já é igual a 100. Nao e possivel adicionar mais participantes')
+      return res.status(404).send('A porcentagem total de participacao já é igual a 100. Não é possível adicionar mais participantes')
     }
 
     const newParticipation = Number(req.body.participation)
-    console.log(totalParticipationPercentage, newParticipation, totalParticipationPercentage + newParticipation > 100);
     if (totalParticipationPercentage + newParticipation > 100) {
       const maxParticipationLeft = 100 - totalParticipationPercentage
-      return res.status(404).send(`A porcentagem total de participacao ficara maior que 100. Voce deve inserir um valor de participacao menor ou igual a ${maxParticipationLeft}`)
+      return res.status(404).send(`A porcentagem total de participacao ficará maior que 100. Voce deve inserir um valor de participacao menor ou igual a ${maxParticipationLeft}`)
     }
     
     await Participants.create(req.body)
