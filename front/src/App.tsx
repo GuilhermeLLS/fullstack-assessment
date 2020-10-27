@@ -8,8 +8,13 @@ import ParticipantsProvider from "./context";
 import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
+  "@global": {
+    body: {
+      margin: "0",
+    }
+  },
   root: {
-    textAlign: "center"
+    textAlign: "center",
   },
   content: {
     display: "flex",
@@ -17,20 +22,25 @@ const useStyles = createUseStyles({
     justifyContent: "center",
     margin: "30px 0",
     "@media(max-width: 768px)": {
-      flexDirection: "column"
-    }
-  }
-})
+      flexDirection: "column",
+    },
+  },
+});
 
 function App() {
-  const classes = useStyles()
+  const classes = useStyles();
   return (
     <div className={classes.root}>
       <ParticipantsProvider>
         <Form />
         <Text tag={"h1"} text={"DATA"} />
-        <Text tag={"span"} text={"Para excluir todos os Participantes, clique no ícone de lixeira ao lado"} />
-        <DeleteButton/>
+        <Text
+          tag={"span"}
+          text={
+            "Para excluir todos os Participantes, clique no ícone de lixeira ao lado"
+          }
+        />
+        <DeleteButton />
         <div className={classes.content}>
           <Table />
           <Chart />
@@ -40,4 +50,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
