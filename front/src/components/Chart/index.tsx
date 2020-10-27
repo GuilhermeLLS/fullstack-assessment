@@ -1,13 +1,15 @@
-// ? change chart lib to https://www.npmjs.com/package/react-minimal-pie-chart
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import withStyles, { WithStylesProps } from "react-jss";
 import Pie from "react-chartjs-2";
 import { ParticipantsContext } from "../../context";
+import { generateHexColor } from "../../utils";
 
 const styles = {
     root: {
-        width: "300px",
-        height: "300px",
+        width: "20%",
+        "@media(max-width: 768px)": {
+            width: "100%",
+        }
     },
 };
 
@@ -16,39 +18,38 @@ interface ChartProps extends WithStylesProps<typeof styles> {
 
 const Chart: React.FC<ChartProps> = (props) => {
     const { classes } = props;
-    const [chartData, setChartData] = useState({});
     const [data,] = useContext(ParticipantsContext) as any[][]
+    
+    if (!data || data.length === 0) {
+        return null
+    }
 
     const getLabelsFromData = () => data.map((elem) => elem.name)
     const getParticipationFromData = () => data.map((elem) => elem.participation)
+    const getColors = () => {
+        const colors: string[] = []
+        data.forEach((_) => colors.push(generateHexColor(colors)))
+        return colors;
+    }
 
-    const chart = () =>
-        setChartData({
-            // !labels are going to be people names
+    const chart = () => {
+        return {
             labels: getLabelsFromData(),
             datasets: [
                 {
                     fill: true,
-                    backgroundColor: [
-                        'black',
-                        'white'
-                    ],
-                    // ! data are going to be the values
+                    backgroundColor: [...getColors()],
                     data: getParticipationFromData(),
-                    // Notice the borderColor 
-                    borderColor: ['black', 'red'],
+                    borderColor: [],
                     borderWidth: [2, 2]
                 }
             ]
-        })
-
-    useEffect(() => {
-        chart()
-    }, [])
+        }
+    }
 
     return (
         <div className={classes.root}>
-            <Pie data={chartData} />
+            <Pie height={200} width={200} data={chart()} />
         </div>
     );
 };
