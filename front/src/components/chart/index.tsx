@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import withStyles, { WithStylesProps } from "react-jss";
 import Pie from "react-chartjs-2";
-import { ParticipantsContext } from "../../context";
-import { generateHexColor } from "../../utils";
+import { DEFAULT_CONTEXT_STATE_VALUES, ParticipantsContext } from "../../context";
+import { areObjectsEqual, generateHexColor } from "../../utils";
+
 
 const styles = {
     root: {
@@ -13,14 +14,13 @@ const styles = {
     },
 };
 
-interface ChartProps extends WithStylesProps<typeof styles> {
-}
+interface ChartProps extends WithStylesProps<typeof styles> { }
 
 const Chart: React.FC<ChartProps> = (props) => {
     const { classes } = props;
-    const [data,] = useContext(ParticipantsContext) as any[][]
-    
-    if (!data || data.length === 0) {
+    const { data } = useContext(ParticipantsContext)
+
+    if (!data || data.length === 0 || areObjectsEqual(data, DEFAULT_CONTEXT_STATE_VALUES.data)) {
         return null
     }
 
