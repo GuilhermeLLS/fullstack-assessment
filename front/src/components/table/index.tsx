@@ -4,8 +4,20 @@ import { ParticipantsContext } from "../../context";
 
 const styles = {
     root: {
-        width: "100%",
-    }
+        width: "40%",
+        height: "300px",
+        borderCollapse: "collapse",
+        alignSelf: "center",
+        margin: "0 30px 0 0",
+        "& table, th, td": {
+            lineHeight: "25px",
+            border: "1px solid #DADADA",
+        },
+        "@media(max-width: 768px)": {
+            width: "90%",
+            margin: "0 0 30px 0",
+        }
+    },
 };
 
 interface TableProps extends WithStylesProps<typeof styles> {
@@ -15,7 +27,11 @@ const Table: React.FC<TableProps> = (props) => {
     const { classes } = props;
     const [data,] = useContext(ParticipantsContext) as any[][]
 
-    const renderData = () => {
+    if (!data || data.length === 0) {
+        return null
+    }
+
+    const renderDataRows = () => {
         return data.map((item, index) => {
             return (
                 <tr key={index}>
@@ -39,7 +55,7 @@ const Table: React.FC<TableProps> = (props) => {
                 </tr>
             </thead>
             <tbody>
-                {renderData()}
+                {renderDataRows()}
             </tbody>
         </table>
     );
