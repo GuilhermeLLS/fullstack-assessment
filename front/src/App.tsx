@@ -11,7 +11,7 @@ const useStyles = createUseStyles({
   "@global": {
     body: {
       margin: "0",
-    }
+    },
   },
   root: {
     textAlign: "center",
