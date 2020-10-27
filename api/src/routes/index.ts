@@ -5,5 +5,6 @@ const routes = Router()
 
 routes.post('/participant', ParticipantsController.InsertParticipant)
 routes.get('/participants', ParticipantsController.getParticipants)
+routes.delete('/delete', ParticipantsController.deleteParticipants)
 
 export default routes
