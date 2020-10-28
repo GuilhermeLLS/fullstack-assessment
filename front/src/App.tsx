@@ -5,27 +5,7 @@ import Table from "./components/table";
 import Text from "./components/text";
 import DeleteButton from "./components/delete-button";
 import ParticipantsProvider from "./context";
-import { createUseStyles } from "react-jss";
-
-const useStyles = createUseStyles({
-  "@global": {
-    body: {
-      margin: "0",
-    },
-  },
-  root: {
-    textAlign: "center",
-  },
-  content: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    margin: "30px 0",
-    "@media(max-width: 768px)": {
-      flexDirection: "column",
-    },
-  },
-});
+import { useStyles } from "./AppStyle";
 
 function App() {
   const classes = useStyles();
