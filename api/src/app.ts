@@ -1,9 +1,12 @@
-import express from "express"
-import mongoose from "mongoose"
-import morgan from "morgan"
-import routes from "@routes/index"
-import uri from "@database/config"
 import cors from "cors"
+import * as dotenv from "dotenv";
+import express from "express"
+import morgan from "morgan"
+import mongoose from "mongoose"
+import routes from "@routes/index"
+
+dotenv.config();
+const MONGO_URL: string = process.env.DB_URL;
 
 class App {
     server: any
@@ -20,7 +23,7 @@ class App {
     }
 
     database() {
-        mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: true })
+        mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: true })
     }
 
     middlewares() {

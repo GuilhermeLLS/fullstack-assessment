@@ -1,10 +1,10 @@
-import { Router } from "express"
-import ParticipantsController from "@controllers/ParticipantsController"
+import { Router } from "express";
+import ParticipantsController from "@controllers/ParticipantsController";
 
-const routes = Router()
+const routes = Router();
 
-routes.post('/participant', ParticipantsController.InsertParticipant)
-routes.get('/participants', ParticipantsController.getParticipants)
-routes.delete('/delete', ParticipantsController.deleteParticipants)
+routes.post("/participant", ParticipantsController.InsertParticipant);
+routes.get("/participants", ParticipantsController.getParticipants);
+routes.delete("/delete", ParticipantsController.deleteParticipants);
 
-export default routes
+export default routes;
