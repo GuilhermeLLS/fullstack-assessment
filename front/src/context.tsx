@@ -1,16 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
-
-interface FormData {
-  name: string;
-  lastname: string;
-  participation: number;
-}
-
-type ContextContent = {
-  data: FormData[];
-  setData: React.Dispatch<React.SetStateAction<FormData[]>>;
-};
+import { ContextContent } from "./types";
 
 export const DEFAULT_CONTEXT_STATE_VALUES = {
   data: [

@@ -2,6 +2,7 @@ import Axios from "axios";
 import React, { useContext, useState } from "react";
 import withStyles, { WithStylesProps } from "react-jss";
 import { ParticipantsContext } from "../../context";
+import { ParticipantData } from "../../types";
 
 const styles = {
   root: {
@@ -40,12 +41,6 @@ const styles = {
 
 interface FormProps extends WithStylesProps<typeof styles> {}
 
-interface FormData {
-  name: string;
-  lastname: string;
-  participation: number;
-}
-
 const Form: React.FC<FormProps> = (props: FormProps) => {
   const { classes } = props;
   const [formData, setFormData] = useState({});
@@ -53,7 +48,7 @@ const Form: React.FC<FormProps> = (props: FormProps) => {
 
   const onHandleSubmit = (event: any) => {
     event.preventDefault();
-    Axios.post<Array<FormData>>("http://localhost:4000/participant", formData)
+    Axios.post<Array<ParticipantData>>("http://localhost:4000/participant", formData)
       .then((res) => setData(res.data))
       .catch((err) => alert(err.response.data));
     event.target.reset();
