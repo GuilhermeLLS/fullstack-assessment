@@ -46,7 +46,7 @@ const Form: React.FC<FormProps> = (props: FormProps) => {
   const [formData, setFormData] = useState({});
   const { setData } = useContext(ParticipantsContext);
 
-  const onHandleSubmit = (event: any) => {
+  const onHandleSubmit = (event: any): void => {
     event.preventDefault();
     Axios.post<Array<ParticipantData>>("http://localhost:4000/participant", formData)
       .then((res) => setData(res.data))
@@ -59,7 +59,7 @@ const Form: React.FC<FormProps> = (props: FormProps) => {
     });
   };
 
-  const changeHandler = (event: any) => {
+  const changeHandler = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const nam = event.target.name;
     const val = event.target.value;
     setFormData({ ...formData, [nam]: val });
@@ -69,6 +69,7 @@ const Form: React.FC<FormProps> = (props: FormProps) => {
     <div className={classes.root}>
       <form onSubmit={onHandleSubmit}>
         <input
+          data-testid={"NameInput"}
           className={classes.input}
           placeholder={"Name"}
           type="text"
@@ -76,6 +77,7 @@ const Form: React.FC<FormProps> = (props: FormProps) => {
           onChange={changeHandler}
         />
         <input
+          data-testid={"LastNameInput"}
           className={classes.input}
           placeholder={"Last Name"}
           type="text"
@@ -83,6 +85,7 @@ const Form: React.FC<FormProps> = (props: FormProps) => {
           onChange={changeHandler}
         />
         <input
+          data-testid={"ParticipationInput"}
           className={classes.input}
           placeholder={"Participation"}
           type="text"
