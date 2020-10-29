@@ -1,5 +1,5 @@
 import { Router } from "express";
-import ParticipantsController from "@controllers/ParticipantsController";
+import ParticipantsController from "../controllers/ParticipantsController";
 
 const routes = Router();
 
