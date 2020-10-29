@@ -17,16 +17,7 @@
     "emitDecoratorMetadata": true,         
     "skipLibCheck": true,                     
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
-    "paths": {
-      "@controllers/*": ["./src/controllers/*"],
-      "@routes/*": ["./src/routes/*"],
-      "@retrievers/*": ["./src/retrievers/*"],
-      "@database/*": ["./src/database/*"],
-      "@models/*": ["./src/models/*"],
-      "@views/*": ["./src/views/*"],
-      "@config/*": ["./src/config/*"]
-    }
+    "baseUrl": "."
   },
   "include": [
     "src/**/*"
