@@ -1,8 +1,8 @@
-import Participants from "@models/Participant";
+import Participants from "../models/Participant";
 import {
   retrieveTotalParticipation,
   retrieveParticipants,
-} from "@retrievers/index";
+} from "../retrievers/index";
 import { Request, Response } from "express";
 
 class ParticipantsController {
@@ -37,7 +37,7 @@ class ParticipantsController {
   }
 
   async deleteParticipants(_: Request, res: Response) {
-    await Participants.remove({});
+    await Participants.deleteMany({});
     return res.json([]);
   }
 }
