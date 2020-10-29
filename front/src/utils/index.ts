@@ -1,5 +1,7 @@
 export function generateHexColor(existentColors: string[]): string {
-  const color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  const parseHexString = (hexString: string) => hexString.length === 6 ? `${hexString}a` : hexString;
+  const color = parseHexString(`#${Math.ceil(Math.random() * 16777215).toString(16)}`);
+
   return existentColors.includes(color)
     ? generateHexColor(existentColors)
     : color;
