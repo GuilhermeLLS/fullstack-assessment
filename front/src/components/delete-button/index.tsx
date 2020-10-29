@@ -18,7 +18,7 @@ const DeleteButton: React.FC<DeleteButtonProps> = (props) => {
 
   const { setData } = useContext(ParticipantsContext);
 
-  const deleteParticipants = () => {
+  const deleteParticipants = (): void => {
     Axios.delete("http://localhost:4000/delete").then((res) =>
       setData(res.data)
     );
