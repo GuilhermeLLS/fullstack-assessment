@@ -1,4 +1,4 @@
-import Participants, { ParticipantDocument } from "@models/Participant";
+import Participants, { ParticipantDocument } from "../models/Participant";
 
 export async function retrieveTotalParticipation(): Promise<number> {
   const [totalParticipationPercentage] = await Participants.aggregate([
