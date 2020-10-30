@@ -3,7 +3,7 @@ import withStyles, { WithStylesProps } from "react-jss";
 import {
   DEFAULT_CONTEXT_STATE_VALUES,
   ParticipantsContext,
-} from "../../context";
+} from "../context/context";
 import { areObjectsEqual } from "../../utils";
 
 const styles = {
@@ -24,10 +24,9 @@ const styles = {
   },
 };
 
-interface TableProps extends WithStylesProps<typeof styles> {}
+interface TableProps extends WithStylesProps<typeof styles> { }
 
-const Table: React.FC<TableProps> = (props) => {
-  const { classes } = props;
+const Table: React.FC<TableProps> = ({ classes }) => {
   const { data } = useContext(ParticipantsContext);
 
   if (
