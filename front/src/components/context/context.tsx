@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
-import { ContextContent } from "./types";
+import { ParticipantContextType } from "../../types";
 
 export const DEFAULT_CONTEXT_STATE_VALUES = {
   data: [
@@ -13,7 +13,7 @@ export const DEFAULT_CONTEXT_STATE_VALUES = {
   setData: () => {},
 };
 
-export const ParticipantsContext = createContext<ContextContent>(
+export const ParticipantsContext = createContext<ParticipantContextType>(
   DEFAULT_CONTEXT_STATE_VALUES
 );
 
