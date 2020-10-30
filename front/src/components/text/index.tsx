@@ -8,7 +8,7 @@ interface TextProps extends WithStylesProps<typeof styles> {
   tag: string;
 }
 
-const Text: React.FC<TextProps> = (props) => {
+const Text: React.FC<TextProps> = (props: TextProps) => {
   const { tag = "span", text } = props;
   const isTextTagValid = () => /^(span|h1|h2|h3|h4|h5|h6|label|p)$/.test(tag);
   const Tag = isTextTagValid() ? (tag as any) : ("span" as any);
