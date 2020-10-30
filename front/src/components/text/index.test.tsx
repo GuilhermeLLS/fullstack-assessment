@@ -21,7 +21,7 @@ describe("<Text />", () => {
     expect(screen.getByRole("heading")).toHaveTextContent(fakeText);
   });
   test("should return text with <span> tag, since invalid tag was provided", () => {
-    const fakeTag = "button";
+    const fakeTag = "FAKE";
     const fakeText = "text";
 
     render(<Text tag={fakeTag} text={fakeText} />);
