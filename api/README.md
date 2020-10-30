@@ -8,16 +8,16 @@
 **2. Execute the project**
   use `yarn start`\
 **3. tests**
-  use `yarn test`
+  use `yarn test`\
   
-**running with npm**
-**1. Delete `yarn.lock` file**
-**2. Install dependencies** 
-  use `npm i`
-**3. Execute the project**
-use `npm run start`
-**4. tests**
-  use `npm run test`
+**running with npm**\
+**1. Delete `yarn.lock` file**\
+**2. Install dependencies** \
+  use `npm i`\
+**3. Execute the project**\
+use `npm run start`\
+**4. tests**\
+  use `npm run test`\
 
 ---
 
