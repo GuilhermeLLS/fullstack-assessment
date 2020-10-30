@@ -4,7 +4,7 @@ import Pie from "react-chartjs-2";
 import {
   DEFAULT_CONTEXT_STATE_VALUES,
   ParticipantsContext,
-} from "../../context";
+} from "../context/context";
 import { areObjectsEqual, generateHexColor } from "../../utils";
 
 const styles = {
@@ -18,8 +18,7 @@ const styles = {
 
 interface ChartProps extends WithStylesProps<typeof styles> { }
 
-const Chart: React.FC<ChartProps> = (props) => {
-  const { classes } = props;
+const Chart: React.FC<ChartProps> = ({ classes }: ChartProps) => {
   const { data } = useContext(ParticipantsContext);
 
   if (
