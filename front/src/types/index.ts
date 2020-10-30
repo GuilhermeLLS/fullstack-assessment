@@ -4,7 +4,7 @@ export interface ParticipantData {
     participation: number;
 };
 
-export type ContextContent = {
+export type ParticipantContextType = {
     data: ParticipantData[];
     setData: React.Dispatch<React.SetStateAction<ParticipantData[]>>;
 };
