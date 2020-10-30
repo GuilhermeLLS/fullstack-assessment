@@ -1,31 +1,30 @@
 import Axios from "axios";
 import React, { useContext } from "react";
 import withStyles, { WithStylesProps } from "react-jss";
-import { ParticipantsContext } from "../../context";
+import { ParticipantsContext } from "../context/context";
+import { ParticipantData } from "../../types";
 
 const styles = {
   root: {
     border: "none",
-    backgroundColor: "white",
+    backgroundColor: "#FFFFFF",
     cursor: "pointer",
   },
 };
 
-interface DeleteButtonProps extends WithStylesProps<typeof styles> {}
+interface DeleteButtonProps extends WithStylesProps<typeof styles> { }
 
-const DeleteButton: React.FC<DeleteButtonProps> = (props) => {
-  const { classes } = props;
-
+const DeleteButton: React.FC<DeleteButtonProps> = ({ classes }: DeleteButtonProps) => {
   const { setData } = useContext(ParticipantsContext);
 
   const deleteParticipants = (): void => {
-    Axios.delete("http://localhost:4000/delete").then((res) =>
+    Axios.delete<Array<ParticipantData>>("http://localhost:4000/delete").then((res) =>
       setData(res.data)
     );
   };
 
   return (
-    <button className={classes.root} onClick={() => deleteParticipants()}>
+    <button className={classes.root} onClick={deleteParticipants}>
       <span role={"img"} aria-label={"delete icon"}>
         🗑️
       </span>
