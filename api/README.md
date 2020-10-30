@@ -5,10 +5,10 @@
  **running with yarn**\
 **1. Install dependencies**
   use `yarn`\
-**2. Execute the project**
+**2. Execute the project**\
   use `yarn start`\
-**3. tests**
-  use `yarn test`\
+**3. tests**\
+  use `yarn test`
   
 **running with npm**\
 **1. Delete `yarn.lock` file**\
@@ -17,7 +17,7 @@
 **3. Execute the project**\
 use `npm run start`\
 **4. tests**\
-  use `npm run test`\
+  use `npm run test`
 
 ---
 
