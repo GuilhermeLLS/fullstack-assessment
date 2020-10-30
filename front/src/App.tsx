@@ -4,7 +4,7 @@ import Form from "./components/form";
 import Table from "./components/table";
 import Text from "./components/text";
 import DeleteButton from "./components/delete-button";
-import ParticipantsProvider from "./context";
+import ParticipantsProvider from "./components/context/context";
 import { useStyles } from "./AppStyle";
 
 function App() {
