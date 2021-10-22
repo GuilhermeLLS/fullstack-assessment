@@ -89,7 +89,7 @@ const Form: React.FC<FormProps> = ({ classes }: FormProps) => {
           className={classes.input}
           placeholder={"Participation"}
           type="text"
-          name={"participation"}
+          name="participation"
           onChange={changeHandler}
         />
         <input className={classes.button} value={"Send"} type="submit" />
