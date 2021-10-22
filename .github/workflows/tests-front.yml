@@ -3,12 +3,12 @@ name: Test Pipeline
 on:
   push:
     paths:
-        - 'front/***'
+        - 'front/**'
     branches:
       - main
   pull_request:
     paths:
-        - 'front/***'
+        - 'front/**'
     types: [opened, synchronize, edited]
     branches:
       - main
