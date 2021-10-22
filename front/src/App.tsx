@@ -13,12 +13,10 @@ function App() {
     <div className={classes.root}>
       <ParticipantsProvider>
         <Form />
-        <Text tag={"h1"} text={"DATA"} />
+        <Text tag="h1" text="DATA" />
         <Text
-          tag={"span"}
-          text={
-            "Para excluir todos os Participantes, clique no ícone de lixeira ao lado"
-          }
+          tag="span"
+          text="Para excluir todos os Participantes, clique no ícone de lixeira ao lado"
         />
         <DeleteButton />
         <div className={classes.content}>

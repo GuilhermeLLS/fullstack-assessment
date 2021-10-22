@@ -16,7 +16,7 @@ const styles = {
   },
 };
 
-interface ChartProps extends WithStylesProps<typeof styles> { }
+type ChartProps = WithStylesProps<typeof styles>;
 
 const Chart: React.FC<ChartProps> = ({ classes }: ChartProps) => {
   const { data } = useContext(ParticipantsContext);
@@ -30,7 +30,8 @@ const Chart: React.FC<ChartProps> = ({ classes }: ChartProps) => {
   }
 
   const getLabelsFromData = (): string[] => data.map((elem) => elem.name);
-  const getParticipationFromData = (): number[] => data.map((elem) => elem.participation);
+  const getParticipationFromData = (): number[] =>
+    data.map((elem) => elem.participation);
   const getColors = (): string[] => {
     const colors: string[] = [];
     data.forEach((_) => colors.push(generateHexColor(colors)));
