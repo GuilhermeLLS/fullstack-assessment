@@ -39,7 +39,7 @@ const styles = {
   },
 };
 
-interface FormProps extends WithStylesProps<typeof styles> { }
+type FormProps = WithStylesProps<typeof styles>;
 
 const Form: React.FC<FormProps> = ({ classes }: FormProps) => {
   const [formData, setFormData] = useState({});
@@ -47,7 +47,10 @@ const Form: React.FC<FormProps> = ({ classes }: FormProps) => {
 
   const onHandleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    Axios.post<Array<ParticipantData>>("http://localhost:4000/participant", formData)
+    Axios.post<Array<ParticipantData>>(
+      "http://localhost:4000/participant",
+      formData
+    )
       .then((res) => setData(res.data))
       .catch((err) => alert(err.response.data));
     const eventTarget = event.target as HTMLFormElement;
@@ -69,30 +72,30 @@ const Form: React.FC<FormProps> = ({ classes }: FormProps) => {
     <div className={classes.root}>
       <form onSubmit={onHandleSubmit}>
         <input
-          data-testid={"NameInput"}
+          data-testid="NameInput"
           className={classes.input}
-          placeholder={"Name"}
+          placeholder="Name"
           type="text"
-          name={"name"}
+          name="name"
           onChange={changeHandler}
         />
         <input
-          data-testid={"LastNameInput"}
+          data-testid="LastNameInput"
           className={classes.input}
-          placeholder={"Last Name"}
+          placeholder="Last Name"
           type="text"
-          name={"lastname"}
+          name="lastname"
           onChange={changeHandler}
         />
         <input
-          data-testid={"ParticipationInput"}
+          data-testid="ParticipationInput"
           className={classes.input}
-          placeholder={"Participation"}
+          placeholder="Participation"
           type="text"
-          name={"participation"}
+          name="participation"
           onChange={changeHandler}
         />
-        <input className={classes.button} value={"Send"} type="submit" />
+        <input className={classes.button} value="Send" type="submit" />
       </form>
     </div>
   );

@@ -12,20 +12,22 @@ const styles = {
   },
 };
 
-interface DeleteButtonProps extends WithStylesProps<typeof styles> { }
+type DeleteButtonProps = WithStylesProps<typeof styles>;
 
-const DeleteButton: React.FC<DeleteButtonProps> = ({ classes }: DeleteButtonProps) => {
+const DeleteButton: React.FC<DeleteButtonProps> = ({
+  classes,
+}: DeleteButtonProps) => {
   const { setData } = useContext(ParticipantsContext);
 
   const deleteParticipants = (): void => {
-    Axios.delete<Array<ParticipantData>>("http://localhost:4000/delete").then((res) =>
-      setData(res.data)
-    );
+    Axios.delete<Array<ParticipantData>>(
+      "http://localhost:4000/delete"
+    ).then((res) => setData(res.data));
   };
 
   return (
     <button className={classes.root} onClick={deleteParticipants}>
-      <span role={"img"} aria-label={"delete icon"}>
+      <span role="img" aria-label="delete icon">
         🗑️
       </span>
     </button>

@@ -24,7 +24,7 @@ const styles = {
   },
 };
 
-interface TableProps extends WithStylesProps<typeof styles> { }
+type TableProps = WithStylesProps<typeof styles>;
 
 const Table: React.FC<TableProps> = ({ classes }) => {
   const { data } = useContext(ParticipantsContext);
